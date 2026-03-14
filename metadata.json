@@ -1,0 +1,7 @@
+{
+  "name": "Star world packer",
+  "description": "Star world packer - Professional, reliable, and affordable packing and moving services in Haridwar. Home shifting, office relocation, car transport, and more.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
