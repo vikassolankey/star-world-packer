@@ -22,15 +22,15 @@ const fleetFeatures = [
 
 const fleetImages = [
   {
-    url: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800",
+    url: "https://img.freepik.com/premium-photo/gps-tracking-moving-truck-with-container-map_955712-17877.jpg",
     alt: "Modern Fleet Truck"
   },
   {
-    url: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800",
+    url: "https://s-media-cache-ak0.pinimg.com/736x/74/f1/39/74f13952d43403cdd9d4bb9791499437--semi-trucks-big-trucks.jpg",
     alt: "Logistics Fleet"
   },
   {
-    url: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+    url: "https://5.imimg.com/data5/SELLER/Default/2023/4/299254707/MC/WO/BO/58510088/loading-unloading-services-500x500.jpg",
     alt: "Transport Vehicle"
   }
 ];

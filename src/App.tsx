@@ -9,8 +9,11 @@ import WhyChoose from "./pages/WhyChoose";
 import Services from "./pages/Services";
 import Gallery from "./pages/Gallery";
 import Branches from "./pages/Branches";
+import BranchDetail from "./pages/BranchDetail";
 import Clients from "./pages/Clients";
 import Contact from "./pages/Contact";
+import Certificates from "./pages/Certificates";
+
 
 export default function App() {
   return (
@@ -19,13 +22,17 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            {/* <Route path="about" element={<About />} />
+            <Route path="about" element={<About />} />
             <Route path="why-choose-us" element={<WhyChoose />} />
-            <Route path="services" element={<Services />} /> */}
+            <Route path="services" element={<Services />} />
             <Route path="branches" element={<Branches />} />
-            {/* <Route path="gallery" element={<Gallery />} />
+            <Route path="branches/:branchId" element={<BranchDetail />} />
+            <Route path="gallery" element={<Gallery />} />
             <Route path="clients" element={<Clients />} />
-            <Route path="contact" element={<Contact />} /> */}
+            <Route path="contact" element={<Contact />} />
+            <Route path="certificates" element={<Certificates />} />
+            <Route path="packers-and-movers-in-:citySlug" element={<BranchDetail />} />
+            <Route path="*" element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>

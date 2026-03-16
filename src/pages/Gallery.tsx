@@ -3,7 +3,7 @@ import { Gallery as GalleryComponent } from '../components/Gallery';
 
 const GalleryPage = () => {
   return (
-    <div className="pt-10">
+    <div>
       <div className="bg-primary py-20 text-white text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">Our Gallery</h1>
         <p className="text-xl text-white/80 max-w-2xl mx-auto px-4">

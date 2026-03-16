@@ -19,7 +19,7 @@ const stats = [
   },
   {
     type: 'image',
-    src: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
+    src: 'https://5.imimg.com/data5/SELLER/Default/2024/4/414017916/TM/XU/SA/153833679/packer-and-mover-service-500x500.jpg',
     alt: 'Logistics',
     className: 'row-span-2'
   },
@@ -33,7 +33,7 @@ const stats = [
   },
   {
     type: 'image',
-    src: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800',
+    src: 'https://tse2.mm.bing.net/th/id/OIP.BJjsTtZ8Zgx4igeZsu6sGAHaEo?w=1920&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3',
     alt: 'Transport',
     className: 'row-span-2 md:col-start-2'
   },
@@ -79,27 +79,36 @@ export const BentoStats = () => {
           {stats.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`rounded-3xl overflow-hidden shadow-sm border border-slate-100 ${item.className}`}
+              transition={{ delay: index * 0.05, duration: 0.5 }}
+              whileHover={{ y: -10, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
+              className={`rounded-3xl overflow-hidden shadow-sm border border-slate-100 group ${item.className}`}
             >
               {item.type === 'image' ? (
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                />
+                <div className="w-full h-full relative overflow-hidden">
+                  <motion.img
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.8 }}
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
               ) : (
-                <div className="h-full p-8 flex flex-col items-center justify-center text-center">
-                  <div className="mb-4 p-3 bg-white rounded-2xl shadow-sm border border-slate-50">
+                <div className="h-full p-8 flex flex-col items-center justify-center text-center group-hover:bg-white transition-colors duration-300">
+                  <motion.div 
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                    className="mb-4 p-3 bg-white rounded-2xl shadow-sm border border-slate-50 group-hover:bg-primary group-hover:text-white transition-all duration-300"
+                  >
                     {item.icon}
-                  </div>
-                  <h3 className="text-3xl font-bold text-slate-800 mb-1">{item.value}</h3>
-                  <p className="text-sm font-semibold text-slate-600 mb-2">{item.label}</p>
-                  <p className="text-xs text-slate-400 leading-relaxed">{item.description}</p>
+                  </motion.div>
+                  <h3 className="text-3xl font-bold text-slate-800 mb-1 group-hover:text-primary transition-colors">{item.value}</h3>
+                  <div className="text-sm font-bold text-secondary uppercase tracking-widest mb-2">{item.label}</div>
+                  <p className="text-xs text-slate-500 leading-relaxed group-hover:text-slate-600 transition-colors">{item.description}</p>
                 </div>
               )}
             </motion.div>

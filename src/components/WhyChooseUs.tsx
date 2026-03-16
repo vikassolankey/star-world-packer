@@ -72,13 +72,14 @@ export const WhyChooseUs = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex gap-4"
+                  whileHover={{ x: 10 }}
+                  className="flex gap-4 group cursor-default"
                 >
-                  <div className="bg-secondary/10 text-secondary p-3 rounded-xl h-fit">
+                  <div className="bg-secondary/10 text-secondary p-3 rounded-xl h-fit group-hover:bg-secondary group-hover:text-white transition-all duration-300">
                     {React.cloneElement(feature.icon as React.ReactElement, { size: 24 })}
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-800 mb-1">{feature.title}</h4>
+                    <h4 className="font-bold text-slate-800 mb-1 group-hover:text-primary transition-colors">{feature.title}</h4>
                     <p className="text-sm text-slate-500">{feature.desc}</p>
                   </div>
                 </motion.div>
@@ -86,25 +87,35 @@ export const WhyChooseUs = () => {
             </div>
           </div>
 
-          <div className="bg-primary rounded-3xl p-10 text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl" />
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="bg-primary rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl animate-pulse" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/20 rounded-full -ml-32 -mb-32 blur-3xl" />
             
             <h3 className="text-3xl font-bold mb-12 text-center relative z-10">Our Achievements</h3>
             
             <div className="grid grid-cols-2 gap-y-12 gap-x-8 relative z-10">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-4xl md:text-5xl font-extrabold text-secondary mb-2">
+                <motion.div 
+                  key={index} 
+                  whileHover={{ scale: 1.1 }}
+                  className="text-center"
+                >
+                  <div className="text-4xl md:text-5xl font-extrabold text-secondary mb-2 drop-shadow-lg">
                     <Counter value={stat.value} suffix={stat.suffix} />
                   </div>
                   <div className="text-white/80 font-medium uppercase tracking-wider text-sm">
                     {stat.label}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

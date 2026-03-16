@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Hero } from '../components/Hero';
 import { ModernWhoWeAre } from '../components/ModernWhoWeAre';
 import { BentoStats } from '../components/BentoStats';
@@ -12,8 +12,11 @@ import { Process } from '../components/Process';
 import { Gallery } from '../components/Gallery';
 import { Testimonials } from '../components/Testimonials';
 import { Contact } from '../components/Contact';
+import PricingModal from '../components/PricingModal';
 
 const Home = () => {
+  const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
+
   return (
     <>
       <Hero />
@@ -24,11 +27,12 @@ const Home = () => {
       <DetailedWhyUs />
       <SafetyReliability />
       <Services />
-      <PricingInfo />
+      <PricingInfo onPriceChartClick={() => setIsPricingModalOpen(true)} />
       <Process />
       <Gallery />
       <Testimonials />
       <Contact />
+      <PricingModal isOpen={isPricingModalOpen} onClose={() => setIsPricingModalOpen(false)} />
     </>
   );
 };

@@ -1,10 +1,12 @@
 import React from 'react';
 import { WhyChooseUs } from '../components/WhyChooseUs';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { branches } from '../data/branches';
 
 const About = () => {
   return (
-    <div className="pt-10">
+    <div>
       <div className="bg-primary py-20 text-white text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">About Us</h1>
         <p className="text-xl text-white/80 max-w-2xl mx-auto px-4">
@@ -21,7 +23,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=800" 
+                src="https://tse1.mm.bing.net/th/id/OIP.IqsdAe4WQhrAhzO3ukB31QHaFj?rs=1&pid=ImgDetMain&o=7&rm=3" 
                 alt="Our Team" 
                 className="rounded-3xl shadow-2xl"
                 referrerPolicy="no-referrer"
@@ -119,25 +121,20 @@ const About = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { city: "Haridwar", state: "Uttarakhand", icon: "🏔️" },
-              { city: "Rishikesh", state: "Uttarakhand", icon: "🧘" },
-              { city: "Jhansi", state: "Uttar Pradesh", icon: "🏰" },
-              { city: "Delhi", state: "NCR", icon: "🏙️" },
-              { city: "Kotdwar", state: "Uttarakhand", icon: "🌳" },
-              { city: "Gwalior", state: "Madhya Pradesh", icon: "🏛️" }
-            ].map((branch, i) => (
+            {branches.map((branch, i) => (
               <motion.div
-                key={i}
+                key={branch.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-3xl p-8 text-center shadow-md hover:shadow-xl transition-all border border-slate-100"
+                className="bg-white rounded-3xl p-8 text-center shadow-md hover:shadow-xl transition-all border border-slate-100 group"
               >
-                <div className="text-5xl mb-4">{branch.icon}</div>
-                <h3 className="text-2xl font-bold text-primary mb-2">{branch.city}</h3>
-                <p className="text-secondary font-semibold">{branch.state}</p>
+                <Link to={`/branches/${branch.id}`}>
+                  <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">{branch.icon}</div>
+                  <h3 className="text-2xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">{branch.city}</h3>
+                  <p className="text-secondary font-semibold">{branch.state}</p>
+                </Link>
               </motion.div>
             ))}
           </div>

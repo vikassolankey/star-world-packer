@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Phone, MessageSquare, ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/src/lib/utils';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 export const FloatingActions = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -37,19 +38,27 @@ export const FloatingActions = () => {
 
       {/* WhatsApp Button */}
       <motion.a
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
-        href="https://wa.me/911234567890"
-        className="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all flex items-center justify-center"
+        animate={{ 
+          boxShadow: ["0 0 0 0 rgba(34, 197, 94, 0)", "0 0 0 15px rgba(34, 197, 94, 0.2)", "0 0 0 0 rgba(34, 197, 94, 0)"] 
+        }}
+        transition={{ 
+          boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+        }}
+        href="https://wa.me/917080825666"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all flex items-center justify-center relative z-10"
       >
-        <MessageSquare size={24} />
+        <WhatsAppIcon size={24} />
       </motion.a>
 
       {/* Call Button */}
       <motion.a
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        href="tel:+911234567890"
+        href="tel:+917080825666"
         className="bg-secondary text-white p-4 rounded-full shadow-2xl hover:bg-secondary/90 transition-all flex items-center justify-center"
       >
         <Phone size={24} />

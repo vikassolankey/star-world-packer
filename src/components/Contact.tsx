@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { branches } from '../data/branches';
 
 export const Contact = () => {
   return (
@@ -38,8 +40,8 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-slate-800 mb-1">Phone Number</h4>
-                  <p className="text-slate-500">+91 98765 43210</p>
-                  <p className="text-slate-500">+91 12345 67890</p>
+                  <p className="text-slate-500">+91 91206 22066</p>
+                  <p className="text-slate-500">+91 94500 38615</p>
                 </div>
               </div>
 
@@ -49,8 +51,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-slate-800 mb-1">Email Address</h4>
-                  <p className="text-slate-500">info@packersmoversharidwar.com</p>
-                  <p className="text-slate-500">support@packersmoversharidwar.com</p>
+                  <p className="text-slate-500">Starworldpackers1988@gmail.com</p>
                 </div>
               </div>
 
@@ -154,46 +155,9 @@ export const Contact = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { 
-                city: "Haridwar", 
-                address: "123, Shivalik Nagar, BHEL, Haridwar, Uttarakhand",
-                phone: "+91 98765 43210",
-                email: "haridwar@starworldpacker.com"
-              },
-              { 
-                city: "Rishikesh", 
-                address: "Near Laxman Jhula, Rishikesh, Uttarakhand",
-                phone: "+91 98765 43211",
-                email: "rishikesh@starworldpacker.com"
-              },
-              { 
-                city: "Jhansi", 
-                address: "45, Civil Lines, Near Railway Station, Jhansi, Uttar Pradesh",
-                phone: "+91 98765 43212",
-                email: "jhansi@starworldpacker.com"
-              },
-              { 
-                city: "Delhi", 
-                address: "Plot No. 12, Okhla Phase III, New Delhi",
-                phone: "+91 98765 43213",
-                email: "delhi@starworldpacker.com"
-              },
-              { 
-                city: "Kotdwar", 
-                address: "Main Market, Kotdwar, Pauri Garhwal, Uttarakhand",
-                phone: "+91 98765 43214",
-                email: "kotdwar@starworldpacker.com"
-              },
-              { 
-                city: "Gwalior", 
-                address: "City Centre, Gwalior, Madhya Pradesh",
-                phone: "+91 98765 43215",
-                email: "gwalior@starworldpacker.com"
-              }
-            ].map((branch, i) => (
+            {branches.map((branch, i) => (
               <motion.div
-                key={i}
+                key={branch.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -204,36 +168,52 @@ export const Contact = () => {
                   <MapPin size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-primary mb-4">{branch.city}</h3>
-                <div className="space-y-3">
-                  <p className="text-slate-600 flex gap-3">
+                <div className="space-y-3 mb-8">
+                  <p className="text-slate-600 flex gap-3 text-sm">
                     <MapPin size={18} className="text-secondary shrink-0 mt-1" />
                     <span>{branch.address}</span>
                   </p>
-                  <p className="text-slate-600 flex gap-3">
+                  <p className="text-slate-600 flex gap-3 text-sm">
                     <Phone size={18} className="text-secondary shrink-0 mt-1" />
                     <span>{branch.phone}</span>
                   </p>
-                  <p className="text-slate-600 flex gap-3">
+                  <p className="text-slate-600 flex gap-3 text-sm">
                     <Mail size={18} className="text-secondary shrink-0 mt-1" />
                     <span>{branch.email}</span>
                   </p>
                 </div>
+                <Link 
+                  to={`/branches/${branch.id}`}
+                  className="inline-flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors"
+                >
+                  View Details <ArrowRight size={18} />
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
 
         {/* Google Map Placeholder */}
-        <div className="mt-20 h-[400px] rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+        <div className="mt-20 h-[400px] rounded-3xl overflow-hidden shadow-xl border-4 border-white relative group">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55251.37709964824!2d78.1007321!3d29.9526654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3909470eb8ee72c9%3A0xbc26c9d1b068899a!2sHaridwar%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1710400000000!5m2!1sen!2sin"
+            src={branches[0].mapUrl}
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            title="Star world Packers and Movers Haridwar Location"
           ></iframe>
+          <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors pointer-events-none" />
+          <a 
+            href={branches[0].externalMapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-4 right-4 bg-white text-primary px-6 py-3 rounded-xl font-bold shadow-xl flex items-center gap-2 hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1 z-20"
+          >
+            <MapPin size={20} /> View on Google Maps
+          </a>
         </div>
       </div>
     </section>

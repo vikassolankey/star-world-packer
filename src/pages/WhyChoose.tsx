@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, Clock, BadgePercent, Users, Heart, Award, CheckCircle2, Truck, Package, Headphones } from 'lucide-react';
+import { Contact } from '../components/Contact';
 
 const reasons = [
   {
     title: "100% Safe & Secure",
     desc: "We use premium quality packing materials like bubble wraps, corrugated sheets, and heavy-duty boxes to ensure your belongings are protected from any damage during transit.",
     icon: <ShieldCheck size={40} />,
-    image: "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&q=80&w=800",
+    image: "https://wallpaperaccess.com/full/2317062.jpg",
     color: "bg-blue-50"
   },
   {
@@ -21,14 +22,14 @@ const reasons = [
     title: "Affordable Pricing",
     desc: "We offer the most competitive rates in the industry with zero hidden charges. Our transparent pricing model ensures you get the best value for your hard-earned money.",
     icon: <BadgePercent size={40} />,
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800",
+    image: "https://tse1.explicit.bing.net/th/id/OIP.XQO54Wp3Emq_9zpwesTYagHaE8?w=1200&h=800&rs=1&pid=ImgDetMain&o=7&rm=3",
     color: "bg-green-50"
   },
   {
     title: "Experienced Professionals",
     desc: "Our team consists of highly trained experts who have years of experience in handling delicate items, heavy furniture, and complex office equipment.",
     icon: <Users size={40} />,
-    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=800",
+    image: "https://cdn.elearningindustry.com/wp-content/uploads/2014/09/Top-10-Tips-To-Create-a-Corporate-Learning-Community-of-Practice-800x547.jpg",
     color: "bg-purple-50"
   },
   {
@@ -42,14 +43,14 @@ const reasons = [
     title: "24/7 Customer Support",
     desc: "Our dedicated support team is available around the clock to answer your queries and provide updates on your relocation status.",
     icon: <Headphones size={40} />,
-    image: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80&w=800",
+    image: "https://tse4.mm.bing.net/th/id/OIP.r2S2XJ0acjXA_Aa7cTQrjAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
     color: "bg-teal-50"
   }
 ];
 
 const WhyChoose = () => {
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <section className="bg-primary py-24 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -mr-48 -mt-48" />
@@ -171,6 +172,8 @@ const WhyChoose = () => {
           </div>
         </div>
       </section>
+
+      <Contact />
     </div>
   );
 };

@@ -78,7 +78,7 @@ export const TrustGuarantee = () => {
           >
             <div className="rounded-[2rem] overflow-hidden shadow-2xl border-4 border-slate-50 relative z-10">
               <img 
-                src="https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&q=80&w=800" 
+                src="https://mountainpackersmovers.in/img/about/packing-and-unpacking-services.webp" 
                 alt="Secure Packing"
                 className="w-full h-full object-cover aspect-[4/3]"
                 referrerPolicy="no-referrer"

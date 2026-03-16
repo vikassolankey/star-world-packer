@@ -35,11 +35,17 @@ export const TopHeader = () => {
             <div className="flex items-center gap-3 lg:gap-4">
               <a href="mailto:info@starworldpacker.com" className="flex items-center gap-1.5 hover:text-secondary transition-colors">
                 <Mail size={12} className="text-secondary" />
-                <span className="lowercase">info@starworldpacker.com</span>
+                <span className="lowercase">Starworldpackers1988@gmail.com</span>
               </a>
-              <a href="tel:+919876543210" className="flex items-center gap-1.5 hover:text-secondary transition-colors border-l border-white/20 pl-3 lg:pl-4">
+              <a href="tel:+919450038615" className="flex items-center gap-1.5 hover:text-secondary transition-colors border-l border-white/20 pl-3 lg:pl-4">
                 <Phone size={12} className="text-secondary" />
-                <span>+91 98765 43210</span>
+                <span>+91 94500 38615</span>
+                 
+              </a>
+               <a href="tel:+919120622066" className="flex items-center gap-1.5 hover:text-secondary transition-colors border-l border-white/20 pl-3 lg:pl-4">
+               
+                 <Phone size={12} className="text-secondary" />
+                <span>+91 91206 22066</span>
               </a>
             </div>
 

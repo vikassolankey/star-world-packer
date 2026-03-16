@@ -23,7 +23,7 @@ export const DetailedWhyUs = () => {
           >
             <div className="relative h-64 rounded-3xl overflow-hidden mb-6 shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=800"
+                src="https://tse3.mm.bing.net/th/id/OIP.iOnkDNph7ifitfh4STKGjgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3"
                 alt="Professional Team"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 referrerPolicy="no-referrer"
@@ -73,7 +73,7 @@ export const DetailedWhyUs = () => {
           >
             <div className="relative h-64 rounded-3xl overflow-hidden mb-6 shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800"
+                src="https://img.freepik.com/premium-photo/happy-ethnic-woman-answering-phone-call-office_251859-17911.jpg"
                 alt="Customer Support"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 referrerPolicy="no-referrer"
@@ -92,10 +92,23 @@ export const DetailedWhyUs = () => {
 
         <div className="mt-16 flex flex-wrap justify-center gap-8">
           {['Licensed & Insured', 'No Hidden Fees', 'Free Pre-Move Survey', 'Eco-Friendly Packing'].map((item, i) => (
-            <div key={i} className="flex items-center gap-2 bg-slate-50 px-6 py-3 rounded-full border border-slate-100">
-              <CheckCircle2 className="text-secondary" size={20} />
-              <span className="font-bold text-primary">{item}</span>
-            </div>
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 + (i * 0.1) }}
+              whileHover={{ 
+                scale: 1.05, 
+                backgroundColor: "#fef3c7",
+                borderColor: "#f59e0b",
+                y: -5
+              }}
+              className="flex items-center gap-3 bg-slate-50 px-8 py-4 rounded-2xl border border-slate-100 shadow-sm cursor-default transition-all duration-300"
+            >
+              <CheckCircle2 className="text-secondary" size={24} />
+              <span className="font-black text-primary tracking-tight">{item}</span>
+            </motion.div>
           ))}
         </div>
       </div>
