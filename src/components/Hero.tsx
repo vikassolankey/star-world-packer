@@ -10,8 +10,8 @@ const heroImages = [
   "https://www.pixelstalk.net/wp-content/uploads/images6/Truck-4k-Wallpaper-HD.jpg", // Moving truck
   "https://images.pexels.com/photos/6169056/pexels-photo-6169056.jpeg", // Packing boxes
   "https://images.pexels.com/photos/7464725/pexels-photo-7464725.jpeg",
-  "https://images.pexels.com/photos/29399463/pexels-photo-29399463.jpeg", // Home relocation
-  "https://images.pexels.com/photos/4246260/pexels-photo-4246260.jpeg",
+  "https://images.pexels.com/photos/29057946/pexels-photo-29057946.jpeg", // Home relocation
+  "https://images.pexels.com/photos/7203812/pexels-photo-7203812.jpeg",
   "https://images.pexels.com/photos/20882743/pexels-photo-20882743.jpeg", // Office shifting
   "https://images.pexels.com/photos/5025664/pexels-photo-5025664.jpeg", // Workers loading
 ];
@@ -179,79 +179,10 @@ export const Hero = () => {
             className="relative"
           >
             {/* Decorative elements */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-secondary/20 blur-[120px] rounded-full animate-pulse" />
+            {/* <div className="absolute -top-20 -right-20 w-64 h-64 bg-secondary/20 blur-[120px] rounded-full animate-pulse" />
             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/20 blur-[120px] rounded-full animate-pulse" />
             
-            <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 p-6 md:p-8 rounded-[2.5rem] shadow-2xl group">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 rounded-[2.5rem]" />
-              
-              <div className="relative z-10">
-                <div className="absolute -top-4 -right-2 bg-secondary text-white px-3 py-1.5 rounded-xl font-bold shadow-lg transform rotate-12 animate-pulse text-xs md:text-sm">
-                  Get 20% OFF!
-                </div>
-                
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">Quick Quote Form</h3>
-                
-                <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); openQuoteModal(); }}>
-                  <div className="grid grid-cols-2 gap-3 md:gap-4">
-                    <div className="space-y-1">
-                      <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest ml-2">From City</label>
-                      <input 
-                        type="text" 
-                        placeholder="Source"
-                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-4 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all text-sm"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest ml-2">To City</label>
-                      <input 
-                        type="text" 
-                        placeholder="Destination"
-                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-4 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all text-sm"
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest ml-2">Shifting Date</label>
-                    <input 
-                      type="date" 
-                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all appearance-none text-sm"
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest ml-2">Shifting Type</label>
-                    <select 
-                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-3.5 text-white focus:outline-none focus:border-secondary transition-all appearance-none cursor-pointer text-sm"
-                      required
-                    >
-                      <option value="" className="bg-slate-900 text-white">Select Type</option>
-                      <option value="household" className="bg-slate-900 text-white">Household Shifting</option>
-                      <option value="office" className="bg-slate-900 text-white">Office Shifting</option>
-                      <option value="vehicle" className="bg-slate-900 text-white">Vehicle Transport</option>
-                      <option value="local" className="bg-slate-900 text-white">Local Shifting</option>
-                    </select>
-                  </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-white text-primary py-4 rounded-2xl font-black text-base md:text-lg flex items-center justify-center gap-3 hover:bg-secondary hover:text-white transition-all shadow-xl mt-4"
-                  >
-                    Get Instant Quote
-                    <Send className="w-5 h-5" />
-                  </motion.button>
-                  
-                  <p className="text-center text-white/30 text-[10px] font-medium pt-2">
-                    ⚡ Safe • Fast • Affordable • Trusted by 50,000+
-                  </p>
-                </form>
-              </div>
-            </div>
+           */}
           </motion.div>
         </div>
       </div>
