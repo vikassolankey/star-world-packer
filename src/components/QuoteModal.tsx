@@ -34,7 +34,7 @@ export const QuoteModal = () => {
             className="relative bg-white w-full max-w-4xl rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row"
           >
             {/* Left Side - Info */}
-            <div className="bg-primary p-8 md:p-12 text-white md:w-2/5 flex flex-col justify-between">
+            <div className="hidden md:flex bg-primary p-8 md:p-10 text-white md:w-[42%] flex-col justify-between">
               <div>
                 <h2 className="text-3xl font-bold mb-4">Get a Free Quote</h2>
                 <p className="text-white/80 mb-8">
@@ -45,21 +45,21 @@ export const QuoteModal = () => {
 
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
-                    <div className="bg-white/10 p-3 rounded-xl">
+                    <div className="bg-white/10 p-3 rounded-xl flex-shrink-0">
                       <Phone size={20} />
                     </div>
                     <div>
                       <p className="text-sm opacity-60">Call Us</p>
-                      <p className="font-bold">+91 98765 43210</p>
+                      <p className="font-bold whitespace-nowrap">+91 70808 25666</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="bg-white/10 p-3 rounded-xl">
+                    <div className="bg-white/10 p-3 rounded-xl flex-shrink-0">
                       <Mail size={20} />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="text-sm opacity-60">Email Us</p>
-                      <p className="font-bold">info@starworldpacker.com</p>
+                      <p className="font-bold break-all text-sm lg:text-base">Starworldpackers1988@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -83,6 +83,11 @@ export const QuoteModal = () => {
               >
                 <X size={24} />
               </button>
+
+              <div className="md:hidden mb-8">
+                <h2 className="text-2xl font-bold text-primary mb-2">Get a Free Quote</h2>
+                <p className="text-slate-500 text-sm">Fill out the form below to get your customized moving plan.</p>
+              </div>
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid md:grid-cols-2 gap-5">

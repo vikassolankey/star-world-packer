@@ -57,7 +57,7 @@ export const Hero = () => {
   const activeImages = isMobile ? heroImagesMobile : heroImages;
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-900">
+    <section className="relative min-h-screen flex items-center bg-slate-900 overflow-x-hidden">
       {/* Background Slider with Parallax & Zoom Effect */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <AnimatePresence>
@@ -84,11 +84,11 @@ export const Hero = () => {
         </AnimatePresence>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-28 md:pt-32 pb-12 md:pb-20">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Hero Content */}
           <motion.div
-            style={{ y: scrollY * -0.15 }} // Subtle parallax for text
+            style={{ y: isMobile ? 0 : scrollY * -0.15 }} // Disable parallax text on mobile for better stability
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -173,43 +173,33 @@ export const Hero = () => {
           {/* Hero Form / Floating Stats */}
           <motion.div
             style={{ y: scrollY * -0.05 }}
-            initial={{ opacity: 0, scale: 0.9, x: 60 }}
+            initial={{ opacity: 0, scale: 0.9, x: isMobile ? 0 : 60 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:block relative"
+            className="relative"
           >
             {/* Decorative elements */}
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-secondary/20 blur-[120px] rounded-full animate-pulse" />
             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/20 blur-[120px] rounded-full animate-pulse" />
             
-            <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 p-8 rounded-[2.5rem] shadow-2xl overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50" />
+            <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 p-6 md:p-8 rounded-[2.5rem] shadow-2xl group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 rounded-[2.5rem]" />
               
               <div className="relative z-10">
-                <div className="absolute -top-4 -right-4 bg-secondary text-white px-4 py-2 rounded-xl font-bold shadow-lg transform rotate-12 animate-pulse">
+                <div className="absolute -top-4 -right-2 bg-secondary text-white px-3 py-1.5 rounded-xl font-bold shadow-lg transform rotate-12 animate-pulse text-xs md:text-sm">
                   Get 20% OFF!
                 </div>
                 
-                <h3 className="text-3xl font-bold text-white mb-6">Quick Quote Form</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">Quick Quote Form</h3>
                 
-                <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); openQuoteModal(); }}>
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest ml-2">Full Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="Your Name"
-                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all"
-                      required
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
+                <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); openQuoteModal(); }}>
+                  <div className="grid grid-cols-2 gap-3 md:gap-4">
                     <div className="space-y-1">
                       <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest ml-2">From City</label>
                       <input 
                         type="text" 
                         placeholder="Source"
-                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all"
+                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-4 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all text-sm"
                         required
                       />
                     </div>
@@ -218,36 +208,25 @@ export const Hero = () => {
                       <input 
                         type="text" 
                         placeholder="Destination"
-                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all"
+                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-4 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all text-sm"
                         required
                       />
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest ml-2">Phone Number</label>
-                      <input 
-                        type="tel" 
-                        placeholder="Mobile Number"
-                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest ml-2">Shifting Date</label>
-                      <input 
-                        type="date" 
-                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all appearance-none"
-                        required
-                      />
-                    </div>
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest ml-2">Shifting Date</label>
+                    <input 
+                      type="date" 
+                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-secondary transition-all appearance-none text-sm"
+                      required
+                    />
                   </div>
 
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest ml-2">Shifting Type</label>
                     <select 
-                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-3.5 text-white focus:outline-none focus:border-secondary transition-all appearance-none cursor-pointer"
+                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-3.5 text-white focus:outline-none focus:border-secondary transition-all appearance-none cursor-pointer text-sm"
                       required
                     >
                       <option value="" className="bg-slate-900 text-white">Select Type</option>
@@ -261,7 +240,7 @@ export const Hero = () => {
                   <motion.button
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-white text-primary py-4 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:bg-secondary hover:text-white transition-all shadow-xl mt-4"
+                    className="w-full bg-white text-primary py-4 rounded-2xl font-black text-base md:text-lg flex items-center justify-center gap-3 hover:bg-secondary hover:text-white transition-all shadow-xl mt-4"
                   >
                     Get Instant Quote
                     <Send className="w-5 h-5" />
